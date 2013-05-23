@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApp", "BankApp\BankApp.csproj", "{4E786FD2-8DD4-41CE-925B-03552A6D3402}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankAppTestProject", "BankAppTestProject\BankAppTestProject.csproj", "{F387CC4E-EB65-4431-9469-3BEDFC2CC3D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{4E786FD2-8DD4-41CE-925B-03552A6D3402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E786FD2-8DD4-41CE-925B-03552A6D3402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E786FD2-8DD4-41CE-925B-03552A6D3402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F387CC4E-EB65-4431-9469-3BEDFC2CC3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F387CC4E-EB65-4431-9469-3BEDFC2CC3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F387CC4E-EB65-4431-9469-3BEDFC2CC3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F387CC4E-EB65-4431-9469-3BEDFC2CC3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BankApp
+namespace BankApp.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BankAppView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BankAppView : Window
     {
-        public MainWindow()
+        public BankAppView()
         {
-            InitializeComponent();
+            
         }
     }
 }
