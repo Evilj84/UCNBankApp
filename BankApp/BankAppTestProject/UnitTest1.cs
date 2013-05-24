@@ -29,5 +29,11 @@ namespace BankAppTestProject
             Assert.AreEqual(s.Amount, d.Amount);
             Assert.AreEqual(s.Interest, d.Interest);
         }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            Assert.AreEqual(1, 1);
+        }
     }
 }
