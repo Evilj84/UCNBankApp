@@ -7,13 +7,22 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using BankApp.Model;
 using System.Xml.Serialization;
+using System.Collections.ObjectModel;
 
 namespace BankApp.ViewModel
 {
     public class BankAppViewModel : INotifyPropertyChanged
     {
-        public List<Account> acc = new List<Account>();
+        public ObservableCollection<Account> Accounts { get; set; }
  
+        //constructor + singleton + abservablecollection
+
+        public BankAppViewModel()
+        {
+            Accounts = new ObservableCollection<Account>();
+            Initialize();
+        }
+
         public void Initialize()
         {
             XElement xelement = XElement.Load("Model\\Accounts.xml");
@@ -23,13 +32,13 @@ namespace BankApp.ViewModel
 	        {
                 var serializer = new XmlSerializer(typeof(Account));
                 Account ac = (Account)serializer.Deserialize(account.CreateReader());
-                acc.Add(ac);
+                Accounts.Add(ac);
 	        }
         }
 
         public Account input()
         {
-            return acc[0];
+            return Accounts[0];
         }
         
         #region INPC

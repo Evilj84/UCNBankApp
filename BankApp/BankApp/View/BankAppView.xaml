@@ -11,8 +11,11 @@
     <Window.DataContext>
         <my:BankAppViewModel/>
     </Window.DataContext>
-    <StackPanel>
-        <Button Command="{Binding Initialize}" Content="Click me!"/>
-        <TextBox Text="{Binding input, UpdateSourceTrigger=PropertyChanged}"/> 
-    </StackPanel>
+    <Grid>
+        <Button Command="{Binding Initialize}" Content="Click me!" Margin="10,10,83.6,106.4"/>
+        <TextBox Text="{Binding input, UpdateSourceTrigger=PropertyChanged}" Margin="10,169,137.6,60.4"/> 
+        <ComboBox ItemsSource="{Binding Path=Accounts}" DisplayMemberPath="AccountID" Margin="10,215,73.6,27.4"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="176,181,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
 </Window>
