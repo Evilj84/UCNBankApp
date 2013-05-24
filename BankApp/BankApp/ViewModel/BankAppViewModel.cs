@@ -25,7 +25,7 @@ namespace BankApp.ViewModel
 
         public void Initialize()
         {
-            XElement xelement = XElement.Load("Model\\Accounts.xml");
+            XElement xelement = XElement.Load("Accounts.xml");
             IEnumerable<XElement> accounts = xelement.Elements();
 
             foreach (var account in accounts)

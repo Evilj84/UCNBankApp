@@ -6,3 +6,4 @@ D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankA
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankAppTestProject\obj\Debug\BankAppTestProject.dll
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankAppTestProject\obj\Debug\BankAppTestProject.pdb
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankAppTestProject\bin\Debug\Model\Account.cs
+D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankAppTestProject\bin\Debug\Accounts.xml
