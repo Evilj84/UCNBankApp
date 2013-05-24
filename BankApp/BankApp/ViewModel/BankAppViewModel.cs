@@ -35,11 +35,6 @@ namespace BankApp.ViewModel
                 Accounts.Add(ac);
 	        }
         }
-
-        public Account input()
-        {
-            return Accounts[0];
-        }
         
         #region INPC
 
