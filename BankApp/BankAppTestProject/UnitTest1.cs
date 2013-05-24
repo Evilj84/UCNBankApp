@@ -8,14 +8,14 @@ namespace BankAppTestProject
     [TestClass]
     public class UnitTest1
     {
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    BankAppViewModel ba = new BankAppViewModel();
-        //    ba.Initialize();
-        //    Account s = ba.input();
-        //    Assert.IsNotNull(s);
-        //}
+        [TestMethod]
+        public void TestMethod1()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            Account ac1 = ba.Accounts[0];
+            Account ac2 = new Account("Account 1", 500.00, 0.013);
+            Assert.AreEqual(ac1.AccountID, ac2.AccountID);
+        }
 
         //[TestMethod]
         //public void TestMethood2()
