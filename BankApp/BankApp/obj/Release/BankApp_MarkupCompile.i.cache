@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\obj\Debug\
+D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\obj\Release\
 BankApp
 none
 false
-DEBUG;TRACE
+TRACE
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\App.xaml
 1387337239
 
-11-1808791048
+11-918308533
 12-1401562060
 View\BankAppView.xaml;
 
-False
+True
 
