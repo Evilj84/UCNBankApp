@@ -95,10 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Accounts.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Accounts.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

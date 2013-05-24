@@ -5,17 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:my="clr-namespace:BankApp.ViewModel"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="400" d:DesignWidth="600"
 	Title="BankAppView">
 
     <Window.DataContext>
         <my:BankAppViewModel/>
     </Window.DataContext>
     <Grid>
-        <Button Command="{Binding Initialize}" Content="Click me!" Margin="10,10,83.6,106.4"/>
-        <TextBox Text="{Binding input, UpdateSourceTrigger=PropertyChanged}" Margin="10,169,137.6,60.4"/> 
-        <ComboBox ItemsSource="{Binding Path=Accounts}" DisplayMemberPath="AccountID" Margin="10,215,73.6,27.4"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="176,181,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Account No:" HorizontalAlignment="Left" Margin="16,33,0,0" VerticalAlignment="Top"/>
+        <Label Content="Balance:" HorizontalAlignment="Left" Margin="16,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Interest rate:" HorizontalAlignment="Left" Margin="16,90,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbInterest" HorizontalAlignment="Left" Margin="110,94,0,0" TextWrapping="Wrap" Text="{Binding ElementName=cbAccountNo, Path=SelectedItem.Interest, TargetNullValue=0, FallbackValue=0}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbBalance" HorizontalAlignment="Left" Margin="110,70,0,0" TextWrapping="Wrap" Text="{Binding ElementName=cbAccountNo, Path=SelectedItem.Amount, TargetNullValue=0, FallbackValue=0}" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="110,36,0,0" VerticalAlignment="Top" Width="120" x:Name="cbAccountNo" ItemsSource="{Binding Path=Accounts}" DisplayMemberPath="AccountID"/>
+        <Label Content="Withdraw" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="Account information" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top"/>
+        <Label Content="Amount:" HorizontalAlignment="Left" Margin="268,33,0,0" VerticalAlignment="Top"/>
+        <Label Content="Deposit" HorizontalAlignment="Left" Margin="268,91,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Withdraw}" x:Name="btnWithdraw" Content="Withdraw" HorizontalAlignment="Left" Margin="342,64,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBox Text="{Binding Path=WithdrawValue, Mode=TwoWay}" x:Name="tbWithdraw" HorizontalAlignment="Left" Height="23" Margin="342,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+        <Label Content="Amount" HorizontalAlignment="Left" Margin="268,122,0,0" VerticalAlignment="Top"/>
+        <TextBox Text="{Binding Path=DepositValue, Mode=TwoWay}" x:Name="tbDeposit" HorizontalAlignment="Left" Height="23" Margin="342,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+        <Button Command="{Binding Deposit}" x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" Width="125"/>
+        <Button Command="{Binding AddInterest}" x:Name="btnInterest" Content="Add interest" HorizontalAlignment="Left" Margin="110,114,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

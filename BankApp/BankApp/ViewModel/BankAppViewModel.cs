@@ -8,12 +8,43 @@ using System.Xml.Linq;
 using BankApp.Model;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 
 namespace BankApp.ViewModel
 {
     public class BankAppViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<Account> Accounts { get; set; }
+
+        private int _depositValue;
+
+        public int DepositValue
+        {
+            get
+            {
+                return _depositValue;
+            }
+            set
+            {
+                _depositValue = value;
+                RaisePropertyChanged("DepositValue");
+            }
+        }
+
+        private int _withdrawValue;
+
+        public int WithdrawValue
+        {
+            get
+            {
+                return _withdrawValue;
+            }
+            set
+            {
+                _withdrawValue = value;
+                RaisePropertyChanged("WithdrawValue");
+            }
+        }
  
         //constructor + singleton + abservablecollection
 
@@ -35,6 +66,22 @@ namespace BankApp.ViewModel
                 Accounts.Add(ac);
 	        }
         }
+
+        public void AddInterest()
+        {
+
+        }
+
+         
+        public ActionCommand Deposit()
+        {
+
+        }
+
+        public void Withdraw()
+        {
+
+        }
         
         #region INPC
 
@@ -51,3 +98,22 @@ namespace BankApp.ViewModel
         #endregion
     }
 }
+
+//public class ActionCommand : ICommand
+//{
+//    private readonly Action<string> _codeToExecute;
+
+//    public bool CanExecute(object parameter)
+//    {
+//        return
+//    }
+
+//    public event EventHandler CanExecuteChanged;
+
+//    public void Execute(object parameter)
+//    {
+//        throw new NotImplementedException();
+//    }
+//}
+
+
