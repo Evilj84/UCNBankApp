@@ -56,7 +56,7 @@ namespace BankApp.ViewModel
 
         public void Initialize()
         {
-            XElement xelement = XElement.Load("Accounts.xml");
+            XElement xelement = XElement.Load(@"Accounts.xml");
             IEnumerable<XElement> accounts = xelement.Elements();
 
             foreach (var account in accounts)
@@ -73,7 +73,7 @@ namespace BankApp.ViewModel
         }
 
          
-        public ActionCommand Deposit()
+        public void Deposit()
         {
 
         }
