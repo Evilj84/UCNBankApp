@@ -10,6 +10,7 @@ using System.Xml.Serialization;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
+
 namespace BankApp.ViewModel
 {
     public class BankAppViewModel : INotifyPropertyChanged
@@ -55,8 +56,8 @@ namespace BankApp.ViewModel
         }
 
         public void Initialize()
-        {
-            XElement xelement = XElement.Load(@"Accounts.xml");
+        {            
+            XElement xelement = XElement.Load(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Accounts.xml"));
             IEnumerable<XElement> accounts = xelement.Elements();
 
             foreach (var account in accounts)

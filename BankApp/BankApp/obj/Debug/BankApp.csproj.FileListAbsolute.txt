@@ -15,6 +15,5 @@ D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankA
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\bin\Debug\Model\Account.cs
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\bin\Debug\Accounts.xml
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\obj\Debug\BankApp_Content.g.cs
-D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\obj\Debug\BankApp.csprojResolveAssemblyReference.cache
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\obj\Debug\Deposit.baml
 D:\EvilLaptop\Dropbox\PBA Software development\Test\Jesper BankApp\BankApp\BankApp\obj\Debug\Deposit.g.cs
