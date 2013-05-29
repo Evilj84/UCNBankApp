@@ -16,9 +16,10 @@
         <Label Content="Account No:" HorizontalAlignment="Left" Margin="16,33,0,0" VerticalAlignment="Top"/>
         <Label Content="Balance:" HorizontalAlignment="Left" Margin="16,64,0,0" VerticalAlignment="Top"/>
         <Label Content="Interest rate:" HorizontalAlignment="Left" Margin="16,90,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tbInterest" HorizontalAlignment="Left" Margin="110,94,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Interest, ElementName=cbAccountNo, FallbackValue=0, TargetNullValue=0}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tbBalance" HorizontalAlignment="Left" Margin="110,70,0,0" TextWrapping="Wrap" 
-                   Text="{Binding SelectedItem.Amount, ElementName=cbAccountNo, FallbackValue=0, TargetNullValue=0}" 
+        <TextBlock x:Name="tbInterest" HorizontalAlignment="Left" Margin="110,94,0,0" TextWrapping="Wrap" 
+                   Text="{Binding SelectedItem.Interest, ElementName=cbAccountNo, FallbackValue=0, TargetNullValue=0}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbBalance" HorizontalAlignment="Left" Margin="110,73,0,0" TextWrapping="Wrap" 
+                   Text="{Binding ElementName=cbAccountNo, Path=SelectedItem.Amount, FallbackValue=0, TargetNullValue=0}" 
                    VerticalAlignment="Top"/>
 
         <ComboBox HorizontalAlignment="Left" Margin="110,36,0,0" VerticalAlignment="Top" Width="120" x:Name="cbAccountNo" 
@@ -34,7 +35,7 @@
         <TextBox Text="{Binding Path=WithdrawAmount}" x:Name="tbWithdraw" HorizontalAlignment="Left" Height="23" Margin="342,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
         <Label Content="Amount" HorizontalAlignment="Left" Margin="268,122,0,0" VerticalAlignment="Top"/>
         <TextBox Text="{Binding Path=DepositAmount}" x:Name="tbDeposit" HorizontalAlignment="Left" Height="23" Margin="342,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-        <Button Command="{Binding Path=ClickInterestCommand}" CommandParameter="{Binding ElementName=tbInterest, Path=Text}" Content="Interest" HorizontalAlignment="Left" Margin="116,145,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding Path=ClickInterestCommand}" Content="Interest" HorizontalAlignment="Left" Margin="116,145,0,0" VerticalAlignment="Top" Width="75"/>
 
         <Button Command="{Binding Path=ClickDepositCommand}" CommandParameter="{Binding ElementName=tbDeposit, Path=Text}" x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" Width="125"/>
         

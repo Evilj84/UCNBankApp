@@ -9,19 +9,20 @@ namespace BankApp.Model
 {
     public class Account : INotifyPropertyChanged
     {
-        public string _accountID;
-        public double _amount;
-        public double _interest;
+        private string _accountID;
+        private double _amount;
+        private double _interest;
 
         #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged(string propertyName)
+        protected void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
 
@@ -66,17 +67,17 @@ namespace BankApp.Model
             }
         }
 
-        //public Account()
-        //{
+        public Account()
+        {
 
-        //}
+        }
 
-        //public Account(string id, double amount, double interest)
-        //{
-        //    AccountID = id;
-        //    Amount = amount;
-        //    Interest = interest;
-        //}
+        public Account(string id, double amount, double interest)
+        {
+            AccountID = id;
+            Amount = amount;
+            Interest = interest;
+        }
 
         
     }

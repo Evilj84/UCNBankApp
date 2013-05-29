@@ -72,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ViewModel\InvalidWithdrawException.cs" />
     <Compile Include="View\BankAppView.xaml.cs">
       <DependentUpon>BankAppView.xaml</DependentUpon>
     </Compile>

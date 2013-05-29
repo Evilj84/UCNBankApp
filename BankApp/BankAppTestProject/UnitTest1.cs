@@ -9,54 +9,152 @@ namespace BankAppTestProject
     [TestClass]
     public class UnitTest1
     {
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //    BankAppViewModel ba = new BankAppViewModel();
-        //    Account ac1 = ba.Accounts[0];
-        //    Account ac2 = new Account("Account 1", 500.00, 0.013);
-        //    Assert.IsNotNull(ac1.AccountID);
-        //}
-
-        //[TestMethod]
-        //public void TestMethood2()
-        //{
-        //    BankAppViewModel ba = new BankAppViewModel();
-        //    ba.Initialize();
-        //    Account s = ba.input();
-        //    Account d = new Account("Account 1", 500.00, 0.013);
-        //    Assert.AreEqual(s.AccountID, d.AccountID);
-        //    Assert.AreEqual(s.Amount, d.Amount);
-        //    Assert.AreEqual(s.Interest, d.Interest);
-        //}
+        #region Black Box Tests
 
         [TestMethod]
-        public void TestMethod3()
+        public void BlackWithdrawAmountToZero()
         {
-            Assert.AreEqual(1, 1);
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 500.00, 0.013);
+            ba.WithdrawAmount(500);
+            double expected = 500 - 500;
+            double actual = ba.SelectedAccount.Amount;
+            Assert.AreEqual(expected, actual);
         }
 
-        #region Blackbox tests
-
-        ////You are not allowed to withdraw more than what is available on the account
-        //[TestMethod]
-        //public void WithdrawOverAvailableAmountTest()
-        //{
-        //    BankAppViewModel ba = new BankAppViewModel();
-        //    ObservableCollection<Account> accounts = ba.Accounts;
-        //    string accountNo = "Account 1";
-        //    Account account = null;
+        [TestMethod]
+        public void BlackWithdrawAmountOverBalance()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 500.00, 0.013);
             
-        //    foreach (var acc in accounts)
-        //    {
-        //        if (acc.AccountID == accountNo)
-        //        {
-        //            account = acc;
-        //        }
-        //    }
+            try
+            {
+                ba.WithdrawAmount(501);
+                Assert.Fail("It is supposed to fail, because you can not withdraw more than is in the account");
+            }
+            catch (InvalidWithdrawException)
+            {
+            }
+        }
 
-        //    Assert.is
-        //}
+        [TestMethod]
+        public void BlackWithdrawAmountMinus()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 500.00, 0.013);
+
+            try
+            {
+                ba.WithdrawAmount(-500);
+                Assert.Fail("It is supposed to fail, because you cant withdraw a minus amount");
+            }
+            catch (InvalidWithdrawException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void BlackWithdrawAmountZero()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 500.00, 0.013);
+
+            try
+            {
+                ba.WithdrawAmount(0);
+                Assert.Fail("It is supposed to fail, because you cant withdraw 0");
+            }
+            catch (InvalidWithdrawException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void BlackInterestAdd()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 500.00, 0.013);
+            ba.AddInterest(51);
+            double expected = 500 + (500 * 0.013);
+            double actual = ba.SelectedAccount.Amount;
+            Assert.AreEqual(expected, actual);
+        }
+
+        #endregion
+
+        #region White Box Tests
+
+        [TestMethod]
+        public void WhiteWithdrawMoreThanThousand()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 1500.0, 0.013);
+            try
+            {
+                ba.WithdrawAmount(1001.00);
+                Assert.Fail("It is supposed to fail, because you cant withdraw more than 1000.00");
+            }
+            catch (InvalidWithdrawException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void WhiteDepositMoreThanTenThousand()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 1500.0, 0.013);
+            try
+            {
+                ba.DepositAmount(10001.00);
+                Assert.Fail("It is supposed to fail, because you cant deposit more than 10000.00");
+            }
+            catch (InvalidDepositException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void WhiteDepositLessThanZero()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 1500.0, 0.013);
+            try
+            {
+                ba.DepositAmount(-1.00);
+                Assert.Fail("It is supposed to fail, because you cant deposit less than zero");
+            }
+            catch (InvalidDepositException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void WhiteDepositZero()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 1500.0, 0.013);
+            try
+            {
+                ba.DepositAmount(0.00);
+                Assert.Fail("It is supposed to fail, because you cant deposit 0.00");
+            }
+            catch (InvalidDepositException)
+            {
+            }
+        }
+
+        [TestMethod]
+        public void WhiteDepositAmount()
+        {
+            BankAppViewModel ba = new BankAppViewModel();
+            ba.SelectedAccount = new Account("Account 1", 1500.0, 0.013);
+            ba.DepositAmount(500);
+            double expected = 1500.00 + 500.00;
+            double actual = ba.SelectedAccount.Amount;
+            Assert.AreEqual(expected, actual);
+        }
 
         #endregion
     }

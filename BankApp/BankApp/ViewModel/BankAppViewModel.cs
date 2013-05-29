@@ -36,23 +36,6 @@ namespace BankApp.ViewModel
             }
         }
 
-        private double _selectedBalance;
-        public double SelectedBalance
-        {
-            get
-            {
-                return _selectedBalance;
-            }
-            set
-            {
-                if (_selectedBalance != value)
-                {
-                    _selectedBalance = value;
-                    RaisePropertyChanged("SelectedBalance");
-                }
-            }
-        }
-
         private ICommand _clickWithdrawCommand;
         public ICommand ClickWithdrawCommand
         {
@@ -103,17 +86,36 @@ namespace BankApp.ViewModel
 
         public void WithdrawAmount(object amount)
         {
-            SelectedAccount._amount = SelectedAccount._amount - Convert.ToDouble(amount);
+            double a = Convert.ToDouble(amount);
+
+            if (SelectedAccount.Amount >= a && a > 0 && a < 1000)
+            {
+                SelectedAccount.Amount = SelectedAccount.Amount - a;
+            }
+            else
+            {
+                throw new InvalidWithdrawException();
+            }
         }
 
         public void DepositAmount(object amount)
         {
-            SelectedAccount._amount = SelectedAccount._amount + Convert.ToDouble(amount);
+            double a = Convert.ToDouble(amount);
+
+            if (SelectedAccount.Amount >= a && a > 0 && a < 10000.00)
+            {
+                SelectedAccount.Amount = SelectedAccount.Amount + a;
+            }
+            else
+            {
+                throw new InvalidDepositException();
+            }
+            
         }
 
         public void AddInterest(object interest)
         {
-            SelectedAccount._amount = SelectedAccount._amount + (SelectedAccount._amount * SelectedAccount._interest);
+            SelectedAccount.Amount = SelectedAccount.Amount + (SelectedAccount.Amount * SelectedAccount.Interest);
         }
 
         public void Initialize()
@@ -176,6 +178,17 @@ class RelayCommand : ICommand
     }
 
     #endregion
+
+
+
+}
+
+public class InvalidWithdrawException : ApplicationException
+{
+}
+
+public class InvalidDepositException : ApplicationException
+{
 
 }
 
