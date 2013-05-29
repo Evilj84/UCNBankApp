@@ -2,20 +2,21 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BankApp.ViewModel;
 using BankApp.Model;
+using System.Collections.ObjectModel;
 
 namespace BankAppTestProject
 {
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            BankAppViewModel ba = new BankAppViewModel();
-            Account ac1 = ba.Accounts[0];
-            Account ac2 = new Account("Account 1", 500.00, 0.013);
-            Assert.IsNotNull(ac1.AccountID);
-        }
+        //[TestMethod]
+        //public void TestMethod1()
+        //{
+        //    BankAppViewModel ba = new BankAppViewModel();
+        //    Account ac1 = ba.Accounts[0];
+        //    Account ac2 = new Account("Account 1", 500.00, 0.013);
+        //    Assert.IsNotNull(ac1.AccountID);
+        //}
 
         //[TestMethod]
         //public void TestMethood2()
@@ -34,5 +35,29 @@ namespace BankAppTestProject
         {
             Assert.AreEqual(1, 1);
         }
+
+        #region Blackbox tests
+
+        ////You are not allowed to withdraw more than what is available on the account
+        //[TestMethod]
+        //public void WithdrawOverAvailableAmountTest()
+        //{
+        //    BankAppViewModel ba = new BankAppViewModel();
+        //    ObservableCollection<Account> accounts = ba.Accounts;
+        //    string accountNo = "Account 1";
+        //    Account account = null;
+            
+        //    foreach (var acc in accounts)
+        //    {
+        //        if (acc.AccountID == accountNo)
+        //        {
+        //            account = acc;
+        //        }
+        //    }
+
+        //    Assert.is
+        //}
+
+        #endregion
     }
 }

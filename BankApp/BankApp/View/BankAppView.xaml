@@ -17,20 +17,26 @@
         <Label Content="Balance:" HorizontalAlignment="Left" Margin="16,64,0,0" VerticalAlignment="Top"/>
         <Label Content="Interest rate:" HorizontalAlignment="Left" Margin="16,90,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="tbInterest" HorizontalAlignment="Left" Margin="110,94,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Interest, ElementName=cbAccountNo, FallbackValue=0, TargetNullValue=0}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="tbBalance" HorizontalAlignment="Left" Margin="110,70,0,0" TextWrapping="Wrap" Text="{Binding SelectedItem.Amount, ElementName=cbAccountNo, FallbackValue=0, TargetNullValue=0}" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="110,36,0,0" VerticalAlignment="Top" Width="120" x:Name="cbAccountNo" ItemsSource="{Binding Accounts}" DisplayMemberPath="AccountID"/>
+        <TextBlock x:Name="tbBalance" HorizontalAlignment="Left" Margin="110,70,0,0" TextWrapping="Wrap" 
+                   Text="{Binding SelectedItem.Amount, ElementName=cbAccountNo, FallbackValue=0, TargetNullValue=0}" 
+                   VerticalAlignment="Top"/>
+
+        <ComboBox HorizontalAlignment="Left" Margin="110,36,0,0" VerticalAlignment="Top" Width="120" x:Name="cbAccountNo" 
+                  ItemsSource="{Binding Accounts}" DisplayMemberPath="AccountID" SelectedValue="{Binding Path=SelectedAccount, Mode=TwoWay}"/>
+        
         <Label Content="Withdraw" HorizontalAlignment="Left" Margin="268,7,0,0" VerticalAlignment="Top"/>
         <Label Content="Account information" HorizontalAlignment="Left" Margin="16,7,0,0" VerticalAlignment="Top"/>
         <Label Content="Amount:" HorizontalAlignment="Left" Margin="268,33,0,0" VerticalAlignment="Top"/>
         <Label Content="Deposit" HorizontalAlignment="Left" Margin="268,91,0,0" VerticalAlignment="Top"/>
-        <Button Command="{Binding Withdraw}" x:Name="btnWithdraw" Content="Withdraw" HorizontalAlignment="Left" Margin="342,64,0,0" VerticalAlignment="Top" Width="125"/>
-        <TextBox Text="{Binding WithdrawValue, Mode=TwoWay}" x:Name="tbWithdraw" HorizontalAlignment="Left" Height="23" Margin="342,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+
+        <Button Command="{Binding Path=ClickWithdrawCommand}" CommandParameter="{Binding ElementName=tbWithdraw, Path=Text}" x:Name="btnWithdraw" Content="Withdraw" HorizontalAlignment="Left" Margin="342,64,0,0" VerticalAlignment="Top" Width="125"/>
+        
+        <TextBox Text="{Binding Path=WithdrawAmount}" x:Name="tbWithdraw" HorizontalAlignment="Left" Height="23" Margin="342,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
         <Label Content="Amount" HorizontalAlignment="Left" Margin="268,122,0,0" VerticalAlignment="Top"/>
-        <TextBox Text="{Binding DepositValue, Mode=TwoWay}" x:Name="tbDeposit" HorizontalAlignment="Left" Height="23" Margin="342,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
-        <Button Command="{Binding Deposit}" x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" Width="125"/>
-        <Button Command="{Binding AddInterest}" x:Name="btnInterest" Content="Add interest" HorizontalAlignment="Left" Margin="110,114,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox Text="{Binding Path=DepositAmount}" x:Name="tbDeposit" HorizontalAlignment="Left" Height="23" Margin="342,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+        <Button Command="{Binding Path=ClickInterestCommand}" CommandParameter="{Binding ElementName=tbInterest, Path=Text}" Content="Interest" HorizontalAlignment="Left" Margin="116,145,0,0" VerticalAlignment="Top" Width="75"/>
 
-        <BankApp:Deposit HorizontalAlignment="Left" Height="120" Margin="16,159,0,0" VerticalAlignment="Top" Width="149"/>
-
+        <Button Command="{Binding Path=ClickDepositCommand}" CommandParameter="{Binding ElementName=tbDeposit, Path=Text}" x:Name="btnDeposit" Content="Deposit" HorizontalAlignment="Left" Margin="342,150,0,0" VerticalAlignment="Top" Width="125"/>
+        
     </Grid>
 </Window>
