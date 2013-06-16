@@ -107,7 +107,7 @@ namespace BankAppTestProject
             ba.SelectedAccount = new Account("Account 1", 1500.0, 0.013);
             try
             {
-                ba.DepositAmount(10001.00);
+                ba.DepositAmount(10000.01);
                 Assert.Fail("It is supposed to fail, because you cant deposit more than 10000.00");
             }
             catch (InvalidDepositException)

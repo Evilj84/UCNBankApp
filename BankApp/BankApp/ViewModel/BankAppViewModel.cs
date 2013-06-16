@@ -102,7 +102,7 @@ namespace BankApp.ViewModel
         {
             double a = Convert.ToDouble(amount);
 
-            if (SelectedAccount.Amount >= a && a > 0 && a < 10000.00)
+            if (a > 0 && a < 10000.00)
             {
                 SelectedAccount.Amount = SelectedAccount.Amount + a;
             }
